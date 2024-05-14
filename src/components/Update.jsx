@@ -1,12 +1,9 @@
 // import React from "react";
-import { useState} from "react";
-import { useDispatch } from "react-redux"
-import { addPost } from "../Redux/slice";
+import { useState } from "react";
+// import { useDispatch } from "react-redux"
 
-
-export default function Add() {
-
-  const dispatch = useDispatch();
+export default function Update() {
+  //   const dispatch = useDispatch();
   const [book, setbook] = useState({});
 
   const handleChange = (e) => {
@@ -16,17 +13,16 @@ export default function Add() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addPost(book))
     setbook({
       postTitle: "",
       auhtor: "",
-      content: ""
-    })
+      content: "",
+    });
   };
   return (
     <div>
       <div className="">
-        <h1 className="text-3xl text-center m-7 font-semibold">Add New Post</h1>
+        <h1 className="text-3xl text-center m-7 font-semibold">Update Post</h1>
         <form onSubmit={handleSubmit} className="text-center ">
           <div className=" flex justify-center gap-3 items-center">
             <h2 className="text-xl">Post Title :</h2>
@@ -67,8 +63,7 @@ export default function Add() {
             type="submit"
             className="m-3 px-4 py-3 bg-blue-500 text-white rounded hover:opacity-80"
           >
-            {" "}
-            Add
+            Update
           </button>
         </form>
       </div>
