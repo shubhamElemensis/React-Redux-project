@@ -1,27 +1,25 @@
 // import React from "react";
-import { useState} from "react";
-import { useDispatch } from "react-redux"
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { addPost } from "../Redux/slice";
 
-
 export default function Add() {
-
   const dispatch = useDispatch();
   const [book, setbook] = useState({});
 
   const handleChange = (e) => {
     setbook({ ...book, [e.target.name]: e.target.value });
-    console.log(book);
+    // console.log(book);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addPost(book))
+    dispatch(addPost(book));
     setbook({
       postTitle: "",
       auhtor: "",
-      content: ""
-    })
+      content: "",
+    });
   };
   return (
     <div>

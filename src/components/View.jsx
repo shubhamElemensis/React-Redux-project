@@ -1,24 +1,27 @@
 // import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost } from "../Redux/slice";
+import { updateIndex } from "../Redux/updateSlice";
 
 export default function View() {
-  const res = useSelector((state) => state.posts);
+  const res = useSelector((state) => state.postSlice.posts);
+  // console.log(res);
   const dispatch = useDispatch();
-
   const handleDelete = (index) => {
-    // console.log(index);
     dispatch(deletePost(index));
   };
 
   const handleUpdate = (index) => {
-    console.log(index);
+    dispatch(updateIndex(index));
   };
 
   return (
     <div>
+      <hr className="m-5 mx-52" />
       <h1 className="text-3xl text-center font-bold">Post</h1>
-      <div className="w-screen flex justify-center">
+      <hr className="m-5 mx-52" />
+
+      <div className="w-4/4 flex justify-center">
         {res.map((val, index) => {
           return (
             <div
